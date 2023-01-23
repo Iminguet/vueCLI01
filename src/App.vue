@@ -2,7 +2,16 @@
   <header><h1>My friends</h1></header>
   <ul>
     <!-- Llamamos al componente con el nombre que elegimos en main.js -->
-    <friend-contact></friend-contact>
+    <friend-contact
+      name="Manuel Lorenz"
+      phone-number="aaabbbccc"
+      email-address="mlorenz@localhost.com"
+    ></friend-contact>
+    <friend-contact
+      name="Julie Jones"
+      phone-number="ddd fff ggg"
+      email-address="julie@localhost.com"
+    ></friend-contact>
   </ul>
 </template>
 
