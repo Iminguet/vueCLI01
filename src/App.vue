@@ -1,17 +1,16 @@
 <template>
-  <header><h1>My friends</h1></header>
+  <header>
+    <h1>Agenda de: {{ mainName }}</h1>
+  </header>
   <ul>
     <!-- Llamamos al componente con el nombre que elegimos en main.js -->
     <friend-contact
-      name="Manuel Lorenz"
-      phone-number="aaabbbccc"
-      email-address="mlorenz@localhost.com"
-      is-favorite="1"
-    ></friend-contact>
-    <friend-contact
-      name="Julie Jones"
-      phone-number="ddd fff ggg"
-      email-address="julie@localhost.com"
+      v-for="friend in friends"
+      :key="friend.id"
+      :name="friend.name"
+      :phone-number="friend.phone"
+      :email-address="friend.email"
+      :is-favorite="false"
     ></friend-contact>
   </ul>
 </template>
@@ -22,7 +21,7 @@ export default {
   components: { FriendContact },
   data() {
     return {
-      name: 'Israel',
+      mainName: 'Israel',
       friends: [
         {
           id: 'aureliano',
@@ -35,6 +34,18 @@ export default {
           name: 'Antofagasto Panocho',
           phone: '666555444',
           email: 'panochoant@agenciainformacion.com',
+        },
+        {
+          id: 'melquiades',
+          name: 'Melquiades Estrada',
+          phone: '11144477',
+          email: 'info@hielosmelquiades.com',
+        },
+        {
+          id: 'julie',
+          name: 'Julie Jones',
+          phone: '856954721',
+          email: 'julie@localhost.com',
         },
       ],
     };
