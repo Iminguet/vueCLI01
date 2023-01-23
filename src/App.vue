@@ -1,13 +1,15 @@
 <template>
   <h1>My friends</h1>
   <ul>
-    <li>{{ name }}</li>
-    <li>{{ friends[0].name }}</li>
+    <!-- Llamamos al componente con el nombre que elegimos en main.js -->
+    <friend-contact></friend-contact>
   </ul>
 </template>
 
 <script>
+import FriendContact from './components/FriendContact.vue';
 export default {
+  components: { FriendContact },
   data() {
     return {
       name: 'Israel',
