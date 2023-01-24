@@ -14,6 +14,7 @@
       :email-address="friend.email"
       :is-favorite="friend.isFavorite"
       @toggle-favorite="toggleFavoriteStatus"
+      @delete="deleteContact"
     ></friend-contact>
   </ul>
 </template>
@@ -82,6 +83,9 @@ export default {
       ) {
         this.friends.push(newFriendContact);
       }
+    },
+    deleteContact(friendId) {
+      this.friends = this.friends.filter((friend) => friend.id !== friendId);
     },
   },
   computed: {},
@@ -167,5 +171,13 @@ header {
 }
 #app form div {
   margin: 1rem 0;
+}
+#app li .remove {
+  background-color: black;
+  border: 1px solid black;
+}
+
+#app ul .remove:hover {
+  background-color: rgb(87, 79, 79);
 }
 </style>
