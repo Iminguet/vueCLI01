@@ -7,10 +7,12 @@
     <friend-contact
       v-for="friend in friends"
       :key="friend.id"
+      :id="friend.id"
       :name="friend.name"
       :phone-number="friend.phone"
       :email-address="friend.email"
       :is-favorite="friend.isFavorite"
+      @toggle-favorite="toggleFavoriteStatus"
     ></friend-contact>
   </ul>
 </template>
@@ -28,29 +30,40 @@ export default {
           name: 'Aureliano Buendia',
           phone: '666666666',
           email: 'abuendia@macondo.com',
+          isFavorite: true,
         },
         {
           id: 'antofagasto',
           name: 'Antofagasto Panocho',
           phone: '666555444',
           email: 'panochoant@agenciainformacion.com',
+          isFavorite: false,
         },
         {
           id: 'melquiades',
           name: 'Melquiades Estrada',
           phone: '11144477',
           email: 'info@hielosmelquiades.com',
+          isFavorite: false,
         },
         {
           id: 'julie',
           name: 'Julie Jones',
           phone: '856954721',
           email: 'julie@localhost.com',
+          isFavorite: false,
         },
       ],
     };
   },
-  methods: {},
+  methods: {
+    toggleFavoriteStatus(friendId) {
+      const identifiedFriend = this.friends.find(
+        (friend) => friend.id === friendId
+      );
+      identifiedFriend.isFavorite = !identifiedFriend.isFavorite;
+    },
+  },
   computed: {},
 };
 </script>

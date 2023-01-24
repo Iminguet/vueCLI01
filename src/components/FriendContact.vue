@@ -2,7 +2,7 @@
   <li>
     <h2>
       {{ name }}
-      {{ friendIsFavorite ? '(Favorite)' : '' }}
+      {{ isFavorite ? '(Favorite)' : '' }}
     </h2>
     <button @click="toggleDetails">
       {{ detailsAreVisible ? 'Hide' : 'Show' }} Details
@@ -20,6 +20,10 @@
 export default {
   //   props: ['name', 'phoneNumber', 'emailAddress', 'isFavorite'],
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -45,10 +49,6 @@ export default {
   data() {
     return {
       detailsAreVisible: false,
-
-      // Paramodificar un prop, primero lo convertimos en una data property. Y a esa dataproperty le damos lo que cojemos de la plantilla principal.
-      // Tomamos el PROP como valor inicial y luego cambiar la propiedad exclusiva del componente.
-      friendIsFavorite: this.isFavorite,
     };
   },
 
@@ -58,7 +58,7 @@ export default {
     },
 
     toggleFavorite() {
-      this.friendIsFavorite = !this.friendIsFavorite;
+      this.$emit('toggle-favorite', this.id);
     },
   },
 };
