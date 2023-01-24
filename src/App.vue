@@ -75,7 +75,13 @@ export default {
         email: email,
         isFavorite: false,
       };
-      this.friends.push(newFriendContact);
+      if (
+        newFriendContact.name !== '' &&
+        newFriendContact.phone !== '' &&
+        newFriendContact.email !== ''
+      ) {
+        this.friends.push(newFriendContact);
+      }
     },
   },
   computed: {},
