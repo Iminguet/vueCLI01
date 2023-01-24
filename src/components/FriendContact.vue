@@ -10,6 +10,7 @@
     <button @click="toggleFavorite">Toggle Favorite</button>
 
     <ul v-if="detailsAreVisible">
+      <li><strong>id:</strong>{{ id }}</li>
       <li><strong>Phone:</strong>{{ phoneNumber }}</li>
       <li><strong>email:</strong>{{ emailAddress }}</li>
     </ul>
@@ -45,17 +46,17 @@ export default {
       //     return value === '1' || value === '0';
     },
   },
-  // emits: ['toggle-favorite'],
-  emits: {
-    'toggle-favorite': function (id) {
-      if (id) {
-        return true;
-      } else {
-        console.warn('Id is missing');
-        return false;
-      }
-    },
-  },
+  emits: ['toggle-favorite'],
+  // emits: {
+  //   'toggle-favorite': function (id) {
+  //     if (id) {
+  //       return true;
+  //     } else {
+  //       console.warn('Id is missing');
+  //       return false;
+  //     }
+  //   },
+  // },
   data() {
     return {
       detailsAreVisible: false,
