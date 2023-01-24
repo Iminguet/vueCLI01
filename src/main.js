@@ -1,19 +1,16 @@
 import { createApp } from 'vue';
 
-// Esta es la aplicación principal sobre la que añadiremos componentes
 import App from './App.vue';
+import ActiveElement from './components/ActiveElement.vue';
+import KnowledgeBase from './components/KnowledgeBase.vue';
+import KnowledgeElement from './components/KnowledgeElement.vue';
+import KnowledgeGrid from './components/KnowledgeGrid.vue';
 
-// Este es el componente
-import FriendsContact from './components/FriendContact.vue';
-
-import NewFriend from './components/NewFriend.vue';
-
-// Añadimos la aplicacion principal a una constante
 const app = createApp(App);
 
-// Añadimos el componente a la aplicación principal con un método. 1º nombre que usaremos en la aplicación principal y luego llámada al método que hemos creado.
-app.component('friend-contact', FriendsContact);
-app.component('new-friend', NewFriend);
+app.component('active-element', ActiveElement);
+app.component('knowledge-base', KnowledgeBase);
+app.component('knowledge-element', KnowledgeElement);
+app.component('knowledge-grid', KnowledgeGrid);
 
-// Montamos!!
 app.mount('#app');
