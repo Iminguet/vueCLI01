@@ -6,6 +6,8 @@ import BaseBadge from './components/BaseBadge.vue';
 
 import BaseCard from './components/BaseCard.vue';
 
+
+
 const app = createApp(App);
 app.component('base-card', BaseCard);
 app.component('base-badge', BaseBadge);
