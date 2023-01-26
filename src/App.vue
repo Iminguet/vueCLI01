@@ -8,8 +8,9 @@
   <!-- <ActiveGoals v-if="selectedComponent === 'active-goals'"></ActiveGoals>
   <ManageGoals v-if="selectedComponent === 'manage-goals'"></ManageGoals> -->
 
-  <!-- componentes dinámicos -->
-  <component :is="selectedComponent"></component>
+  <keep-alive>
+    <component :is="selectedComponent"></component>
+  </keep-alive>
 </template>
 
 <script>
